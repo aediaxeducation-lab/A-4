@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>who is code | AediaX Education</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #202122;
+            background-color: #ffffff;
+        }
+        
+        /* Course Container */
+        .course-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0;
+            background: #ffffff;
+        }
+        
+        /* Hero Section - Wikipedia Style */
+        .course-hero {
+            background: #ffffff;
+            border-bottom: 1px solid #eaecf0;
+            padding: 48px 40px;
+        }
+        
+        .course-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .course-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8f9fa;
+            color: #3366cc;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .course-badge .material-icons {
+            font-size: 16px;
+        }
+        
+        .course-title {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #000000;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            font-family: 'Inter', serif;
+        }
+        
+        .course-description {
+            font-size: 1rem;
+            color: #54595d;
+            line-height: 1.5;
+            max-width: 800px;
+            margin-bottom: 24px;
+        }
+        
+        .course-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 16px;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #54595d;
+            font-size: 0.85rem;
+        }
+        
+        .stat-item .material-icons {
+            font-size: 18px;
+            color: #72777d;
+        }
+        
+        /* Main Content Layout - Wikipedia Style */
+        .course-main {
+            display: flex;
+            gap: 48px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #ffffff;
+        }
+        
+        /* Sidebar - Table of Contents */
+        .course-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+            align-self: flex-start;
+        }
+        
+        .toc-card {
+            background: #f8f9fa;
+            border: 1px solid #eaecf0;
+            border-radius: 0;
+            padding: 20px;
+        }
+        
+        .toc-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eaecf0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .toc-title .material-icons {
+            font-size: 18px;
+            color: #3366cc;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc-item {
+            margin-bottom: 8px;
+        }
+        
+        .toc-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #3366cc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 4px 8px;
+            border-radius: 0;
+            transition: background 0.2s;
+        }
+        
+        .toc-link:hover {
+            background: #eaecf0;
+            text-decoration: underline;
+        }
+        
+        .toc-link .material-icons {
+            font-size: 14px;
+            color: #72777d;
+        }
+        
+        /* Content Area */
+        .course-content-area {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        /* Content Styling - Wikipedia Style */
+        .course-content {
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: #202122;
+        }
+        
+        .course-content h1 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin: 32px 0 16px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #eaecf0;
+            color: #000000;
+            font-family: 'Inter', serif;
+        }
+        
+        .course-content h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 28px 0 16px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #eaecf0;
+            color: #000000;
+        }
+        
+        .course-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: #202122;
+        }
+        
+        .course-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+            color: #202122;
+        }
+        
+        .course-content p {
+            margin-bottom: 20px;
+        }
+        
+        .course-content a {
+            color: #3366cc;
+            text-decoration: none;
+        }
+        
+        .course-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .course-content ul, .course-content ol {
+            margin: 16px 0 20px 32px;
+        }
+        
+        .course-content li {
+            margin-bottom: 6px;
+        }
+        
+        /* Image and Media Responsive */
+        .course-content img,
+        .course-content video,
+        .course-content audio {
+            max-width: 100%;
+            height: auto;
+            margin: 24px 0;
+        }
+        
+        .course-content video {
+            width: 100%;
+            background: #f8f9fa;
+        }
+        
+        .course-content audio {
+            width: 100%;
+        }
+        
+        .figure-container {
+            margin: 24px 0;
+            text-align: center;
+        }
+        
+        .figure-caption {
+            font-size: 0.8rem;
+            color: #54595d;
+            margin-top: 8px;
+        }
+        
+        /* Question Paper Styles - Professional */
+        .question-paper {
+            margin: 48px 0;
+            background: #ffffff;
+            border: 1px solid #eaecf0;
+            overflow: hidden;
+        }
+        
+        .paper-header {
+            background: #f8f9fa;
+            padding: 24px 28px;
+            border-bottom: 1px solid #eaecf0;
+        }
+        
+        .paper-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 0 0 8px 0;
+            color: #000000;
+        }
+        
+        .paper-description {
+            color: #54595d;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+        
+        .paper-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 12px;
+        }
+        
+        .paper-meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #54595d;
+            font-size: 0.8rem;
+        }
+        
+        .paper-meta-item .material-icons {
+            font-size: 16px;
+            color: #72777d;
+        }
+        
+        .paper-instructions {
+            background: #f8f9fa;
+            padding: 16px 24px;
+            margin: 0;
+            border-left: 3px solid #3366cc;
+            font-size: 0.9rem;
+        }
+        
+        .paper-instructions-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .paper-questions {
+            padding: 20px 28px;
+        }
+        
+        .question-item {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #eaecf0;
+        }
+        
+        .question-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .question-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .question-number {
+            background: #f8f9fa;
+            color: #202122;
+            padding: 2px 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid #eaecf0;
+        }
+        
+        .question-marks {
+            color: #54595d;
+            font-size: 0.8rem;
+        }
+        
+        .question-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: #54595d;
+            font-size: 0.75rem;
+        }
+        
+        .question-text {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        
+        .mcq-options {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0 0 0;
+        }
+        
+        .mcq-option {
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            border: 1px solid #eaecf0;
+            background: #ffffff;
+        }
+        
+        .mcq-option.correct {
+            background: #f8f9fa;
+            border-left: 3px solid #00af89;
+        }
+        
+        .option-letter {
+            font-weight: 600;
+            display: inline;
+            margin-right: 8px;
+        }
+        
+        .option-text {
+            display: inline;
+        }
+        
+        .correct-indicator {
+            display: inline-block;
+            margin-left: 12px;
+            color: #00af89;
+            font-size: 0.75rem;
+        }
+        
+        .model-answer {
+            background: #f8f9fa;
+            padding: 16px;
+            margin-top: 16px;
+            border-left: 3px solid #00af89;
+        }
+        
+        .model-answer-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .keyword-tag {
+            background: #eaecf0;
+            color: #202122;
+            padding: 2px 10px;
+            font-size: 0.75rem;
+        }
+        
+        .coding-details {
+            margin-top: 16px;
+            border: 1px solid #eaecf0;
+        }
+        
+        .coding-section {
+            padding: 16px;
+            border-bottom: 1px solid #eaecf0;
+        }
+        
+        .coding-section:last-child {
+            border-bottom: none;
+        }
+        
+        .coding-section-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+        
+        .coding-section-content {
+            font-family: monospace;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+        }
+        
+        .sample-box {
+            background: #f8f9fa;
+            padding: 12px;
+            margin-top: 8px;
+            font-family: monospace;
+            font-size: 0.8rem;
+        }
+        
+        .test-cases {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        
+        .test-case {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            font-size: 0.75rem;
+            font-family: monospace;
+        }
+        
+        /* Quiz Mode Styles - Professional */
+        .quiz-mode-btn {
+            background: #3366cc;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 16px 0;
+            transition: opacity 0.2s;
+        }
+        
+        .quiz-mode-btn:hover {
+            opacity: 0.9;
+        }
+        
+        .quiz-mode-btn.secondary {
+            background: #f8f9fa;
+            color: #3366cc;
+            border: 1px solid #3366cc;
+        }
+        
+        .quiz-container {
+            background: #ffffff;
+            padding: 24px;
+            margin: 20px 0;
+            border: 1px solid #eaecf0;
+        }
+        
+        .quiz-question {
+            margin-bottom: 28px;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #eaecf0;
+        }
+        
+        .quiz-question.selected {
+            border-left: 3px solid #3366cc;
+        }
+        
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            margin: 8px 0;
+            border: 1px solid #eaecf0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .quiz-option:hover {
+            background: #f8f9fa;
+        }
+        
+        .quiz-option.selected {
+            background: #f8f9fa;
+            border-left: 3px solid #3366cc;
+        }
+        
+        .quiz-option.correct-answer {
+            background: #e6f4ea;
+            border-color: #00af89;
+        }
+        
+        .quiz-option.wrong-answer {
+            background: #fce8e6;
+            border-color: #d33;
+        }
+        
+        .quiz-feedback {
+            margin-top: 12px;
+            padding: 12px;
+            font-size: 0.85rem;
+        }
+        
+        .quiz-feedback.correct {
+            background: #f0f8f0;
+            color: #00af89;
+        }
+        
+        .quiz-feedback.wrong {
+            background: #fef6f5;
+            color: #d33;
+        }
+        
+        .quiz-results {
+            text-align: center;
+            padding: 24px;
+            background: #f8f9fa;
+            margin-top: 20px;
+        }
+        
+        .quiz-score {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #3366cc;
+        }
+        
+        .quiz-percentage {
+            font-size: 1rem;
+            color: #54595d;
+        }
+        
+        /* Code Block Styling */
+        .code-block {
+            margin: 24px 0;
+            border: 1px solid #eaecf0;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 8px 16px;
+            border-bottom: 1px solid #eaecf0;
+        }
+        
+        .code-language {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #54595d;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        
+        .code-copy {
+            background: transparent;
+            border: none;
+            color: #3366cc;
+            cursor: pointer;
+            font-size: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+        }
+        
+        .code-copy:hover {
+            background: #eaecf0;
+        }
+        
+        pre {
+            margin: 0;
+            padding: 16px;
+            overflow-x: auto;
+            background: #f8f9fa;
+        }
+        
+        code {
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+        
+        :not(pre) > code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            color: #d33;
+            font-size: 0.85rem;
+        }
+        
+        /* Blockquote */
+        .course-content blockquote {
+            margin: 20px 0;
+            padding: 12px 20px;
+            background: #f8f9fa;
+            border-left: 3px solid #3366cc;
+            color: #54595d;
+        }
+        
+        /* Tables */
+        .course-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.85rem;
+        }
+        
+        .course-content th,
+        .course-content td {
+            border: 1px solid #eaecf0;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        
+        .course-content th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .course-footer {
+            background: #f8f9fa;
+            border-top: 1px solid #eaecf0;
+            padding: 32px 40px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: #3366cc;
+            text-decoration: none;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            color: #72777d;
+            font-size: 0.75rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .course-main {
+                flex-direction: column;
+                padding: 24px;
+                gap: 32px;
+            }
+            
+            .course-sidebar {
+                width: 100%;
+                position: static;
+            }
+            
+            .course-title {
+                font-size: 2rem;
+            }
+            
+            .course-hero {
+                padding: 32px 24px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .course-title {
+                font-size: 1.6rem;
+            }
+            
+            .course-description {
+                font-size: 0.9rem;
+            }
+            
+            .course-stats {
+                gap: 16px;
+            }
+            
+            .course-content h1 { font-size: 1.4rem; }
+            .course-content h2 { font-size: 1.2rem; }
+            .course-content h3 { font-size: 1.1rem; }
+            
+            .paper-header {
+                padding: 16px 20px;
+            }
+            
+            .paper-title {
+                font-size: 1.2rem;
+            }
+            
+            .paper-questions {
+                padding: 16px 20px;
+            }
+            
+            .footer-links {
+                gap: 20px;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .course-sidebar,
+            .course-footer,
+            .course-badge,
+            .quiz-mode-btn {
+                display: none;
+            }
+            
+            .course-main {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-wrapper">
+        <!-- Hero Section -->
+        <div class="course-hero">
+            <div class="course-hero-content">
+                <div class="course-badge">
+                    <span class="material-icons">school</span>
+                    <span>Online Course</span>
+                </div>
+                <h1 class="course-title">who is code</h1>
+                <p class="course-description">xxx</p>
+                <div class="course-stats">
+                    <div class="stat-item">
+                        <span class="material-icons">event</span>
+                        <span>Created: March 31, 2026</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="material-icons">folder</span>
+                        <span>1 Resources</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="material-icons">code</span>
+                        <span>0 Code Examples</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="material-icons">quiz</span>
+                        <span>3 Assessments</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="course-main">
+            <!-- Sidebar with Table of Contents -->
+            <aside class="course-sidebar">
+                <div class="toc-card">
+                    <div class="toc-title">
+                        <span class="material-icons">menu_book</span>
+                        <span>Contents</span>
+                    </div>
+                    <nav>
+                        <ul class="toc-list" id="table-of-contents"></ul>
+                    </nav>
+                </div>
+            </aside>
+            
+            <!-- Main Content Area -->
+            <main class="course-content-area">
+                <div class="course-content">
+                    <h3>Question paper</h3><p>New question paper</p><p><br></p><p>Duration: 60 min</p><p>Total Marks: 5</p><p>Questions: 1</p><ol><li><strong>ok</strong> (5 marks)</li></ol><p class="ql-align-center"><a href="https://raw.githubusercontent.com/aediaxeducation-lab/A-5/main/question_papers/written/1774938426030_question-paper.json?t=1774938426030" rel="noopener noreferrer" target="_blank">View Full Question Paper</a></p><h3>Java</h3><p>java course</p><p><br></p><p>Duration: 60 min</p><p>Total Marks: 1</p><p>Questions: 1</p><ol><li><strong>java question</strong> (1 marks)</li></ol><p class="ql-align-center"><a href="https://raw.githubusercontent.com/aediaxeducation-lab/A-8/main/question_papers/mcq/1774937268464_java.json?t=1774937268464" rel="noopener noreferrer" target="_blank">View Full Question Paper</a></p><h3>React Course</h3><p>ok</p><p><br></p><p>Duration: 60 min</p><p>Total Marks: 10</p><p>Questions: 1</p><ol><li><strong>what is react</strong> (10 marks)</li></ol><p class="ql-align-center"><a href="https://raw.githubusercontent.com/aediaxeducation-lab/A-3/main/question_papers/coding/1774938491515_react-course.json?t=1774938491515" rel="noopener noreferrer" target="_blank">View Full Question Paper</a></p><p><img src="https://raw.githubusercontent.com/aediaxeducation-lab/A-4/main/media_files/images/1774893235576_n1blpi_AEDI43557-AediaX-Segnography.png?t=1774893235576"></p>
+                    
+                    
+                        <div class="question-papers-section">
+                            
+    <div class="question-paper" id="paper-eS22s6wALpHxtoLlC7Fk">
+      <div class="paper-header">
+        <h2 class="paper-title">Question paper</h2>
+        <p class="paper-description">New question paper</p>
+        <div class="paper-meta">
+          <span class="paper-meta-item"><span class="material-icons">schedule</span>Duration: 60 minutes</span>
+          <span class="paper-meta-item"><span class="material-icons">scoreboard</span>Total Marks: 5</span>
+          <span class="paper-meta-item"><span class="material-icons">quiz</span>Questions: 1</span>
+          <span class="paper-meta-item"><span class="material-icons">check_circle</span>Passing: 2 marks</span>
+        </div>
+      </div>
+      
+      
+        <div class="paper-instructions">
+          <div class="paper-instructions-title">
+            <span class="material-icons">info</span>
+            <span>Instructions</span>
+          </div>
+          <div>ok ok</div>
+        </div>
+      
+      
+      
+      
+      <div id="quiz-container-eS22s6wALpHxtoLlC7Fk" style="display: none;"></div>
+      
+      <div id="original-content-eS22s6wALpHxtoLlC7Fk" class="paper-questions">
+        
+    <div class="question-item">
+      <div class="question-header">
+        <div class="question-number">Q1</div>
+        <div class="question-marks">5 marks</div>
+        <div class="question-type">
+          <span class="material-icons">description</span>
+          <span>Written Answer</span>
+        </div>
+      </div>
+      <div class="question-text">ok</div>
+  
+      <div class="model-answer">
+        <div class="model-answer-title">
+          <span class="material-icons">description</span>
+          Model Answer
+        </div>
+        <div>ok</div>
+        
+      </div>
+    </div>
+      </div>
+    </div>
+  
+    <div class="question-paper" id="paper-7dODYFd2qFqvYzdkslzf">
+      <div class="paper-header">
+        <h2 class="paper-title">Java</h2>
+        <p class="paper-description">java course</p>
+        <div class="paper-meta">
+          <span class="paper-meta-item"><span class="material-icons">schedule</span>Duration: 60 minutes</span>
+          <span class="paper-meta-item"><span class="material-icons">scoreboard</span>Total Marks: 1</span>
+          <span class="paper-meta-item"><span class="material-icons">quiz</span>Questions: 1</span>
+          <span class="paper-meta-item"><span class="material-icons">check_circle</span>Passing: 1 marks</span>
+        </div>
+      </div>
+      
+      
+        <div class="paper-instructions">
+          <div class="paper-instructions-title">
+            <span class="material-icons">info</span>
+            <span>Instructions</span>
+          </div>
+          <div>ok</div>
+        </div>
+      
+      
+      
+        <button class="quiz-mode-btn" onclick="startQuizMode('7dODYFd2qFqvYzdkslzf')" style="margin: 20px 28px;">
+          <span class="material-icons">quiz</span>
+          Take Practice Quiz
+        </button>
+      
+      
+      <div id="quiz-container-7dODYFd2qFqvYzdkslzf" style="display: none;"></div>
+      
+      <div id="original-content-7dODYFd2qFqvYzdkslzf" class="paper-questions">
+        
+    <div class="question-item">
+      <div class="question-header">
+        <div class="question-number">Q1</div>
+        <div class="question-marks">1 marks</div>
+        <div class="question-type">
+          <span class="material-icons">quiz</span>
+          <span>Multiple Choice</span>
+        </div>
+      </div>
+      <div class="question-text">java question</div>
+  <div class="mcq-options">
+        <div class="mcq-option correct">
+          <div class="option-letter"><strong>A.</strong></div>
+          <div class="option-text">1</div>
+          <div class="correct-indicator"><span class="material-icons">check_circle</span> Correct Answer</div>
+        </div>
+      
+        <div class="mcq-option ">
+          <div class="option-letter"><strong>B.</strong></div>
+          <div class="option-text">2</div>
+          
+        </div>
+      
+        <div class="mcq-option ">
+          <div class="option-letter"><strong>C.</strong></div>
+          <div class="option-text">3</div>
+          
+        </div>
+      
+        <div class="mcq-option ">
+          <div class="option-letter"><strong>D.</strong></div>
+          <div class="option-text">4</div>
+          
+        </div>
+      </div></div>
+      </div>
+    </div>
+  
+    <div class="question-paper" id="paper-G5lFuTfsI2XtkTaZwZpR">
+      <div class="paper-header">
+        <h2 class="paper-title">React Course</h2>
+        <p class="paper-description">ok</p>
+        <div class="paper-meta">
+          <span class="paper-meta-item"><span class="material-icons">schedule</span>Duration: 60 minutes</span>
+          <span class="paper-meta-item"><span class="material-icons">scoreboard</span>Total Marks: 10</span>
+          <span class="paper-meta-item"><span class="material-icons">quiz</span>Questions: 1</span>
+          <span class="paper-meta-item"><span class="material-icons">check_circle</span>Passing: 4 marks</span>
+        </div>
+      </div>
+      
+      
+        <div class="paper-instructions">
+          <div class="paper-instructions-title">
+            <span class="material-icons">info</span>
+            <span>Instructions</span>
+          </div>
+          <div>kkk</div>
+        </div>
+      
+      
+      
+      
+      <div id="quiz-container-G5lFuTfsI2XtkTaZwZpR" style="display: none;"></div>
+      
+      <div id="original-content-G5lFuTfsI2XtkTaZwZpR" class="paper-questions">
+        
+    <div class="question-item">
+      <div class="question-header">
+        <div class="question-number">Q1</div>
+        <div class="question-marks">10 marks</div>
+        <div class="question-type">
+          <span class="material-icons">code</span>
+          <span>Coding Problem</span>
+        </div>
+      </div>
+      <div class="question-text">what is react</div>
+  <div class="coding-details">
+        <div class="coding-section">
+          <div class="coding-section-title"><span class="material-icons">input</span>Input Format</div>
+          <div class="coding-section-content">111</div>
+        </div>
+      
+        <div class="coding-section">
+          <div class="coding-section-title"><span class="material-icons">output</span>Output Format</div>
+          <div class="coding-section-content">111</div>
+        </div>
+      
+        <div class="coding-section">
+          <div class="coding-section-title"><span class="material-icons">lock</span>Constraints</div>
+          <div class="coding-section-content">111</div>
+        </div>
+      
+        <div class="coding-section">
+          <div class="coding-section-title"><span class="material-icons">code</span>Sample</div>
+          <div class="sample-box"><strong>Input:</strong><br>1</div>
+          <div class="sample-box"><strong>Output:</strong><br>1</div>
+        </div>
+      
+        <div class="coding-section">
+          <div class="coding-section-title"><span class="material-icons">science</span>Test Cases (1)</div>
+          <div class="test-cases">
+            
+              <div class="test-case">
+                <div><strong>Input:</strong> 1</div>
+                <div><strong>Output:</strong> 1</div>
+              </div>
+            
+            
+          </div>
+        </div>
+      </div></div>
+      </div>
+    </div>
+  
+                        </div>
+                    
+                </div>
+            </main>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="course-footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#" class="footer-link">
+                        <span class="material-icons">school</span>
+                        AediaX Education
+                    </a>
+                    <a href="#" class="footer-link">
+                        <span class="material-icons">help</span>
+                        Help Center
+                    </a>
+                    <a href="#" class="footer-link">
+                        <span class="material-icons">privacy_tip</span>
+                        Privacy Policy
+                    </a>
+                    <a href="#" class="footer-link">
+                        <span class="material-icons">terms</span>
+                        Terms of Service
+                    </a>
+                </div>
+                <div class="copyright">
+                    © 2026 AediaX Education. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        // Generate Table of Contents
+        function generateTOC() {
+            const content = document.querySelector('.course-content');
+            if (!content) return;
+            
+            const headings = content.querySelectorAll('h1, h2, h3');
+            const tocList = document.getElementById('table-of-contents');
+            if (!tocList || headings.length === 0) {
+                if (tocList) tocList.innerHTML = '<li class="toc-item">No sections found</li>';
+                return;
+            }
+            
+            tocList.innerHTML = '';
+            
+            headings.forEach((heading, index) => {
+                if (!heading.id) {
+                    heading.id = 'section-' + index;
+                }
+                
+                const level = parseInt(heading.tagName.substring(1));
+                let marginLeft = '';
+                if (level === 2) marginLeft = 'margin-left: 16px;';
+                if (level === 3) marginLeft = 'margin-left: 32px;';
+                
+                const li = document.createElement('li');
+                li.className = 'toc-item';
+                li.style.listStyle = 'none';
+                
+                const link = document.createElement('a');
+                link.className = 'toc-link';
+                link.href = '#' + heading.id;
+                link.style.cssText = marginLeft;
+                link.innerHTML = '<span class="material-icons">' + (level === 1 ? 'article' : 'chevron_right') + '</span><span>' + escapeHtml(heading.textContent) + '</span>';
+                
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+                
+                li.appendChild(link);
+                tocList.appendChild(li);
+            });
+        }
+        
+        // Add copy buttons to code blocks
+        function addCopyButtons() {
+            const codeBlocks = document.querySelectorAll('pre');
+            codeBlocks.forEach((pre) => {
+                if (pre.closest('.code-block')) return;
+                
+                const code = pre.querySelector('code');
+                if (!code) return;
+                
+                const classList = code.className || '';
+                const langMatch = classList.match(/language-(\w+)/);
+                const language = langMatch ? langMatch[1] : 'code';
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = 'code-block';
+                pre.parentNode.insertBefore(wrapper, pre);
+                wrapper.appendChild(pre);
+                
+                const header = document.createElement('div');
+                header.className = 'code-header';
+                header.innerHTML = '<div class="code-language"><span class="material-icons">code</span><span>' + language.toUpperCase() + '</span></div><button class="code-copy" onclick="copyCode(this)"><span class="material-icons">content_copy</span><span>Copy</span></button>';
+                wrapper.insertBefore(header, pre);
+            });
+        }
+        
+        // Copy code function
+        window.copyCode = function(button) {
+            const wrapper = button.closest('.code-block');
+            const pre = wrapper.querySelector('pre');
+            const code = pre.querySelector('code');
+            const text = code ? code.textContent : pre.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<span class="material-icons">check</span><span>Copied!</span>';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 2000);
+            });
+        };
+        
+        // Quiz Mode Functions - Only for question papers
+        window.startQuizMode = function(paperId) {
+            const container = document.getElementById('quiz-container-' + paperId);
+            const originalContent = document.getElementById('original-content-' + paperId);
+            const questions = window.questionData[paperId];
+            
+            if (!questions || questions.length === 0) return;
+            
+            container.style.display = 'block';
+            originalContent.style.display = 'none';
+            renderQuiz(paperId, questions);
+        };
+        
+        window.showOriginalContent = function(paperId) {
+            const container = document.getElementById('quiz-container-' + paperId);
+            const originalContent = document.getElementById('original-content-' + paperId);
+            
+            container.style.display = 'none';
+            originalContent.style.display = 'block';
+        };
+        
+        function renderQuiz(paperId, questions) {
+            const container = document.getElementById('quiz-container-' + paperId);
+            if (!container) return;
+            
+            let userAnswers = {};
+            let quizSubmitted = false;
+            
+            // Filter only MCQ questions for quiz
+            const mcqQuestions = questions.filter(q => q.type === 'mcq');
+            
+            if (mcqQuestions.length === 0) {
+                container.innerHTML = '<div class="quiz-container"><p>No multiple choice questions available for quiz mode.</p><button class="quiz-mode-btn secondary" onclick="showOriginalContent(\'' + paperId + '\')">Back to Paper</button></div>';
+                return;
+            }
+            
+            const renderQuestions = () => {
+                let html = '<div class="quiz-container" style="padding: 0;">';
+                html += '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">';
+                html += '<h3 style="font-size: 1.2rem; font-weight: 500; margin: 0;">Test Your Knowledge</h3>';
+                html += '<div><button class="quiz-mode-btn" onclick="submitQuiz(\'' + paperId + '\')" style="margin-right: 10px;">Submit Quiz</button>';
+                html += '<button class="quiz-mode-btn secondary" onclick="showOriginalContent(\'' + paperId + '\')">Back to Paper</button></div>';
+                html += '</div>';
+                html += '<p style="margin-bottom: 20px; color: #54595d; font-size: 0.85rem;">Answer the following multiple choice questions. Select the best answer for each.</p>';
+                
+                mcqQuestions.forEach((q, idx) => {
+                    const userAnswer = userAnswers[q.id];
+                    const isCorrect = quizSubmitted && userAnswer !== undefined && userAnswer === q.correctOption;
+                    const isWrong = quizSubmitted && userAnswer !== undefined && userAnswer !== q.correctOption;
+                    
+                    html += '<div class="quiz-question" id="quiz-question-' + paperId + '-' + idx + '">';
+                    html += '<div style="margin-bottom: 12px;">';
+                    html += '<span style="font-weight: 600;">Question ' + (idx + 1) + '</span>';
+                    html += '<span style="margin-left: 12px; color: #54595d; font-size: 0.8rem;">(' + (q.marks || 1) + ' marks)</span>';
+                    html += '</div>';
+                    html += '<div class="question-text" style="margin-bottom: 16px; font-weight: normal;">' + escapeHtml(q.text) + '</div>';
+                    html += '<div class="mcq-options" style="list-style: none; padding: 0;">';
+                    
+                    q.options.forEach((opt, optIdx) => {
+                        const letter = String.fromCharCode(65 + optIdx);
+                        const isSelected = userAnswers[q.id] === optIdx;
+                        let optionClass = 'quiz-option';
+                        if (quizSubmitted && optIdx === q.correctOption) optionClass += ' correct-answer';
+                        if (quizSubmitted && isSelected && optIdx !== q.correctOption) optionClass += ' wrong-answer';
+                        if (isSelected && !quizSubmitted) optionClass += ' selected';
+                        
+                        html += '<div class="' + optionClass + '" onclick="selectAnswer(\'' + paperId + '\', ' + q.id + ', ' + optIdx + ', ' + idx + ')">';
+                        html += '<div class="option-letter"><strong>' + letter + '.</strong></div>';
+                        html += '<div class="option-text">' + escapeHtml(opt) + '</div>';
+                        html += '</div>';
+                    });
+                    
+                    html += '</div>';
+                    
+                    if (quizSubmitted && userAnswer !== undefined) {
+                        const feedbackClass = isCorrect ? 'correct' : 'wrong';
+                        const feedbackIcon = isCorrect ? 'check_circle' : 'error';
+                        const feedbackText = isCorrect ? 'Correct!' : 'Incorrect. The correct answer is ' + String.fromCharCode(65 + q.correctOption);
+                        html += '<div class="quiz-feedback ' + feedbackClass + '">';
+                        html += '<span class="material-icons" style="font-size: 14px; vertical-align: middle;">' + feedbackIcon + '</span> ';
+                        html += feedbackText;
+                        html += '</div>';
+                    }
+                    
+                    html += '</div>';
+                });
+                
+                if (quizSubmitted) {
+                    const totalMarks = mcqQuestions.reduce((sum, q) => sum + (q.marks || 1), 0);
+                    const earnedMarks = mcqQuestions.reduce((sum, q) => {
+                        if (userAnswers[q.id] === q.correctOption) return sum + (q.marks || 1);
+                        return sum;
+                    }, 0);
+                    const percentage = (earnedMarks / totalMarks * 100).toFixed(1);
+                    
+                    html += '<div class="quiz-results">';
+                    html += '<div class="quiz-score">' + earnedMarks + ' / ' + totalMarks + '</div>';
+                    html += '<div class="quiz-percentage">' + percentage + '%</div>';
+                    html += '<button class="quiz-mode-btn secondary" onclick="resetQuiz(\'' + paperId + '\')" style="margin-top: 16px;">Try Again</button>';
+                    html += '</div>';
+                }
+                
+                html += '</div>';
+                container.innerHTML = html;
+            };
+            
+            window.selectAnswer = function(pid, qid, optIdx, qIdx) {
+                if (quizSubmitted) return;
+                userAnswers[qid] = optIdx;
+                
+                // Update UI
+                const questionDiv = document.getElementById('quiz-question-' + pid + '-' + qIdx);
+                if (questionDiv) {
+                    const options = questionDiv.querySelectorAll('.quiz-option');
+                    options.forEach((opt, i) => {
+                        if (i === optIdx) {
+                            opt.classList.add('selected');
+                        } else {
+                            opt.classList.remove('selected');
+                        }
+                    });
+                }
+            };
+            
+            window.submitQuiz = function(pid) {
+                quizSubmitted = true;
+                renderQuestions();
+            };
+            
+            window.resetQuiz = function(pid) {
+                userAnswers = {};
+                quizSubmitted = false;
+                renderQuestions();
+            };
+            
+            renderQuestions();
+        }
+        
+        // Store question data
+        window.questionData = {};
+        
+            window.questionData['eS22s6wALpHxtoLlC7Fk'] = [{"text":"ok","modelAnswer":"ok","marks":5,"type":"written","keywords":[],"wordLimit":53,"difficulty":"medium","id":1774938418314,"createdAt":"2026-03-31T06:26:58.314Z"}];
+        
+            window.questionData['7dODYFd2qFqvYzdkslzf'] = [{"text":"java question","options":["1","2","3","4"],"correctOption":0,"marks":1,"type":"mcq","id":1774937157353,"createdAt":"2026-03-31T06:05:57.353Z"}];
+        
+            window.questionData['G5lFuTfsI2XtkTaZwZpR'] = [{"text":"what is react","description":"sssssssssssssss","inputFormat":"111","outputFormat":"111","constraints":"111","sampleInput":"1","sampleOutput":"1","testCases":[{"input":"1","output":"1","isHidden":false,"description":"1","id":1774938486413}],"programmingLanguages":["javascript","python","java"],"marks":10,"type":"coding","timeLimit":2,"memoryLimit":256,"id":1774938489565,"createdAt":"2026-03-31T06:28:09.565Z"}];
+        
+        
+        // Make images responsive with captions
+        function makeImagesResponsive() {
+            const images = document.querySelectorAll('.course-content img');
+            images.forEach(img => {
+                if (!img.closest('.figure-container') && !img.closest('.media-card')) {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'figure-container';
+                    img.parentNode.insertBefore(wrapper, img);
+                    wrapper.appendChild(img);
+                    
+                    if (img.alt && img.alt.length > 0 && !img.nextSibling) {
+                        const caption = document.createElement('div');
+                        caption.className = 'figure-caption';
+                        caption.textContent = img.alt;
+                        wrapper.appendChild(caption);
+                    }
+                }
+            });
+        }
+        
+        // Make videos responsive
+        function makeVideosResponsive() {
+            const videos = document.querySelectorAll('.course-content video');
+            videos.forEach(video => {
+                video.setAttribute('controls', '');
+                video.style.maxWidth = '100%';
+                video.style.height = 'auto';
+            });
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            generateTOC();
+            addCopyButtons();
+            makeImagesResponsive();
+            makeVideosResponsive();
+            if (typeof Prism !== 'undefined') {
+                Prism.highlightAll();
+            }
+        });
+        
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>
